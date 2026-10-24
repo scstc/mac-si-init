@@ -1,0 +1,21 @@
+name: check
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  scripts:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Zsh on Linux
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y zsh
+      - run: npm run check
+      - run: npm test
+      - run: npm pack --dry-run

@@ -1,0 +1,13 @@
+.DS_Store
+node_modules/
+*.tgz
+*.log
+.env
+.env.*
+.ssh/
+.cc-switch/
+*.pem
+*.key
+*.p12
+*.pfx
+*.mac-si-init.*.bak

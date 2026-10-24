@@ -1,0 +1,12 @@
+{
+  "name": "mac-si-init",
+  "version": "0.1.0",
+  "description": "先安装 Claude Code、CC Switch、Codex CLI，再由 agent 引导完成 macOS 初始化与账号授权。",
+  "type": "module",
+  "bin": { "mac-si-init": "./cli.mjs" },
+  "files": ["cli.mjs", "scripts/", "docs/", "AGENTS.md", "CLAUDE.md", "README.md", "troubleshooting.md", "LICENSE"],
+  "scripts": { "test": "node --test", "check": "bash -n scripts/install.sh && bash -n scripts/lib/common.sh && bash -n scripts/lib/cc-switch.sh && bash -n scripts/start-agent.sh && bash -n scripts/check.sh && zsh -n scripts/zshrc.template.zsh && node --check cli.mjs" },
+  "engines": { "node": ">=22" },
+  "keywords": ["macos", "setup", "ai", "claude-code", "codex", "oh-my-zsh", "homebrew"],
+  "license": "MIT"
+}
